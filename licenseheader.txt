@@ -1,0 +1,9 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Security Whitelist validate input fields on server side.
+${licensePrefix}
+${licensePrefix}Copyright (C) 2018 Peter Ivarsson
+<#if licenseLast??>
+${licenseLast}
+</#if>
