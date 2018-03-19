@@ -13,9 +13,6 @@ import java.util.regex.Pattern;
  */
 public class SecurityWhiteList {
 
-    public static final boolean DONT_ALLOW_NULL_OR_EMPTY_INPUT = true;
-    public static final boolean ALLOW_NULL_OR_EMPTY_INPUT = false;
-
     private static final Pattern ONLY_ASCII_CHARACTERS = Pattern.compile("[a-zA-Z]*");
     private static final Pattern ONLY_ASCII_CHARACTERS_AND_DIGITS = Pattern.compile("[a-zA-Z0-9]*");
     private static final Pattern ONLY_DIGITS = Pattern.compile("[0-9]*");
