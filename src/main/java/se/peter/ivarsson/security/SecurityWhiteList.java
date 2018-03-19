@@ -6,6 +6,7 @@
 package se.peter.ivarsson.security;
 
 import java.util.regex.Pattern;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,9 +22,9 @@ public class SecurityWhiteList {
     private static final Pattern ONLY_LATIN_CHARACTERS_AND_WHITESPACE = Pattern.compile("[\\p{IsLatin}\\s]*");  // Allow Latin characters and whitespace
     private static final Pattern ONLY_LATIN_CHARACTERS_AND_WHITESPACE_AND_DIGITS = Pattern.compile("[\\p{IsLatin}\\s0-9]*");  // Allow Latin characters, whitespace and digits
 
-    public static void onlyAsciiCharacters(String input) throws IllegalArgumentException {
+    public static void onlyAsciiCharacters(@NotNull String input) throws IllegalArgumentException {
 
-        checkIfNullOrEmpty(input);
+        checkIfEmpty(input);
 
         if (!ONLY_ASCII_CHARACTERS.matcher(input).matches()) {
 
@@ -31,9 +32,9 @@ public class SecurityWhiteList {
         }
     }
 
-    public static void onlyAsciiCharacters(String input, int maxLength) throws IllegalArgumentException {
+    public static void onlyAsciiCharacters(@NotNull String input, int maxLength) throws IllegalArgumentException {
 
-        if ((input != null) && (input.length() > maxLength)) {
+        if (input.length() > maxLength) {
 
             throw new IllegalArgumentException("Input field to long, input = '" + input.substring(0, maxLength) + "'...");
         }
@@ -41,9 +42,9 @@ public class SecurityWhiteList {
         onlyAsciiCharacters(input);
     }
 
-    public static void onlyAsciiCharactersAndDigits(String input) throws IllegalArgumentException {
+    public static void onlyAsciiCharactersAndDigits(@NotNull String input) throws IllegalArgumentException {
 
-        checkIfNullOrEmpty(input);
+        checkIfEmpty(input);
 
         if (!ONLY_ASCII_CHARACTERS_AND_DIGITS.matcher(input).matches()) {
 
@@ -51,9 +52,9 @@ public class SecurityWhiteList {
         }
     }
 
-    public static void onlyAsciiCharactersAndDigits(String input, int maxLength) throws IllegalArgumentException {
+    public static void onlyAsciiCharactersAndDigits(@NotNull String input, int maxLength) throws IllegalArgumentException {
 
-        if ((input != null) && (input.length() > maxLength)) {
+        if (input.length() > maxLength) {
 
             throw new IllegalArgumentException("Input field to long, input = '" + input.substring(0, maxLength) + "'...");
         }
@@ -61,9 +62,9 @@ public class SecurityWhiteList {
         onlyAsciiCharactersAndDigits(input);
     }
 
-    public static void onlyDigits(String input) throws IllegalArgumentException {
+    public static void onlyDigits(@NotNull String input) throws IllegalArgumentException {
 
-        checkIfNullOrEmpty(input);
+        checkIfEmpty(input);
 
         if (!ONLY_DIGITS.matcher(input).matches()) {
 
@@ -71,9 +72,9 @@ public class SecurityWhiteList {
         }
     }
 
-    public static void onlyDigits(String input, int maxLength) throws IllegalArgumentException {
+    public static void onlyDigits(@NotNull String input, int maxLength) throws IllegalArgumentException {
 
-        if ((input != null) && (input.length() > maxLength)) {
+        if (input.length() > maxLength) {
 
             throw new IllegalArgumentException("Input field to long, input = '" + input.substring(0, maxLength) + "'...");
         }
@@ -81,9 +82,9 @@ public class SecurityWhiteList {
         onlyDigits(input);
     }
 
-    public static void anyUnicodeCharacters(String input) throws IllegalArgumentException {
+    public static void anyUnicodeCharacters(@NotNull String input) throws IllegalArgumentException {
 
-        checkIfNullOrEmpty(input);
+        checkIfEmpty(input);
 
         if (!ONLY_UNICODE_CHARACTERS.matcher(input).matches()) {
 
@@ -91,9 +92,9 @@ public class SecurityWhiteList {
         }
     }
 
-    public static void anyUnicodeCharacters(String input, int maxLength) throws IllegalArgumentException {
+    public static void anyUnicodeCharacters(@NotNull String input, int maxLength) throws IllegalArgumentException {
 
-        if ((input != null) && (input.length() > maxLength)) {
+        if (input.length() > maxLength) {
 
             throw new IllegalArgumentException("Input field to long, input = '" + input.substring(0, maxLength) + "'...");
         }
@@ -101,9 +102,9 @@ public class SecurityWhiteList {
         SecurityWhiteList.anyUnicodeCharacters(input);
     }
 
-    public static void anyUnicodeCharactersAndDigits(String input) throws IllegalArgumentException {
+    public static void anyUnicodeCharactersAndDigits(@NotNull String input) throws IllegalArgumentException {
 
-        checkIfNullOrEmpty(input);
+        checkIfEmpty(input);
 
         if (!ONLY_UNICODE_CHARACTERS_AND_DIGITS.matcher(input).matches()) {
 
@@ -111,9 +112,9 @@ public class SecurityWhiteList {
         }
     }
 
-    public static void anyUnicodeCharacterAndDigits(String input, int maxLength) throws IllegalArgumentException {
+    public static void anyUnicodeCharacterAndDigits(@NotNull String input, int maxLength) throws IllegalArgumentException {
 
-        if ((input != null) && (input.length() > maxLength)) {
+        if (input.length() > maxLength) {
 
             throw new IllegalArgumentException("Input field to long, input = '" + input.substring(0, maxLength) + "'...");
         }
@@ -121,9 +122,9 @@ public class SecurityWhiteList {
         SecurityWhiteList.anyUnicodeCharactersAndDigits(input);
     }
 
-    public static void anyLatinCharactersAndWhitespaces(String input) throws IllegalArgumentException {
+    public static void anyLatinCharactersAndWhitespaces(@NotNull String input) throws IllegalArgumentException {
 
-        checkIfNullOrEmpty(input);
+        checkIfEmpty(input);
 
         if (!ONLY_LATIN_CHARACTERS_AND_WHITESPACE.matcher(input).matches()) {
 
@@ -131,9 +132,9 @@ public class SecurityWhiteList {
         }
     }
 
-    public static void anyLatinCharactersAndWhitespaces(String input, int maxLength) throws IllegalArgumentException {
+    public static void anyLatinCharactersAndWhitespaces(@NotNull String input, int maxLength) throws IllegalArgumentException {
 
-        if ((input != null) && (input.length() > maxLength)) {
+        if (input.length() > maxLength) {
 
             throw new IllegalArgumentException("Input field to long, input = '" + input.substring(0, maxLength) + "'...");
         }
@@ -141,9 +142,9 @@ public class SecurityWhiteList {
         SecurityWhiteList.anyLatinCharactersAndWhitespaces(input);
     }
 
-    public static void anyLatinCharactersWhitespaceOrDigit(String input) throws IllegalArgumentException {
+    public static void anyLatinCharactersWhitespaceOrDigit(@NotNull String input) throws IllegalArgumentException {
 
-        checkIfNullOrEmpty(input);
+        checkIfEmpty(input);
 
         if (!ONLY_LATIN_CHARACTERS_AND_WHITESPACE_AND_DIGITS.matcher(input).matches()) {
 
@@ -151,9 +152,9 @@ public class SecurityWhiteList {
         }
     }
 
-    public static void anyLatinCharactersWhitespaceOrDigit(String input, int maxLength) throws IllegalArgumentException {
+    public static void anyLatinCharactersWhitespaceOrDigit(@NotNull String input, int maxLength) throws IllegalArgumentException {
 
-        if ((input != null) && (input.length() > maxLength)) {
+        if (input.length() > maxLength) {
 
             throw new IllegalArgumentException("Input field to long, input = '" + input.substring(0, maxLength) + "'...");
         }
@@ -164,12 +165,7 @@ public class SecurityWhiteList {
     /*
      * Helper methods
      */
-    private static void checkIfNullOrEmpty(String input) throws IllegalArgumentException {
-
-        if (input == null) {
-
-            throw new IllegalArgumentException("Input field is null");
-        }
+    private static void checkIfEmpty(String input) throws IllegalArgumentException {
 
         if (input.isEmpty()) {
 

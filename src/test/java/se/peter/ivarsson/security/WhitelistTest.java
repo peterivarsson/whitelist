@@ -29,9 +29,9 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(IllegalArgumentException se) {
+        catch(NullPointerException npe) {
             
-            System.out.println(se.getMessage());
+            System.out.println(npe.getMessage());
         }
     }
 
@@ -186,9 +186,9 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(IllegalArgumentException se) {
+        catch(NullPointerException npe) {
             
-            System.out.println(se.getMessage());
+            System.out.println(npe.getMessage());
         }
     }
 
@@ -343,9 +343,9 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(IllegalArgumentException se) {
+        catch(NullPointerException npe) {
             
-            System.out.println(se.getMessage());
+            System.out.println(npe.getMessage());
         }
     }
 
@@ -500,9 +500,9 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(IllegalArgumentException se) {
+        catch(NullPointerException npe) {
             
-            System.out.println(se.getMessage());
+            System.out.println(npe.getMessage());
         }
     }
 
@@ -642,9 +642,9 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(IllegalArgumentException se) {
+        catch(NullPointerException npe) {
             
-            System.out.println(se.getMessage());
+            System.out.println(npe.getMessage());
         }
     }
 
@@ -767,9 +767,9 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(IllegalArgumentException se) {
+        catch(NullPointerException npe) {
             
-            System.out.println(se.getMessage());
+            System.out.println(npe.getMessage());
         }
     }
 
