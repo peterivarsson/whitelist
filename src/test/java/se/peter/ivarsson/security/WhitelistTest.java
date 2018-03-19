@@ -25,11 +25,11 @@ public class WhitelistTest {
         
         try {
         
-            SecurityWhiteList.onlyAsciiCharacters(null, SecurityWhiteList.DONT_ALLOW_NULL_OR_EMPTY_INPUT);
+            SecurityWhiteList.onlyAsciiCharacters(null);
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -42,11 +42,11 @@ public class WhitelistTest {
         
         try {
         
-            SecurityWhiteList.onlyAsciiCharacters("", SecurityWhiteList.DONT_ALLOW_NULL_OR_EMPTY_INPUT);
+            SecurityWhiteList.onlyAsciiCharacters("");
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -59,9 +59,9 @@ public class WhitelistTest {
         
         try {
         
-            SecurityWhiteList.onlyAsciiCharacters("abcABCabc", SecurityWhiteList.DONT_ALLOW_NULL_OR_EMPTY_INPUT);
+            SecurityWhiteList.onlyAsciiCharacters("abcABCabc");
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -76,11 +76,11 @@ public class WhitelistTest {
         
         try {
         
-            SecurityWhiteList.onlyAsciiCharacters("abcABCa7bc", SecurityWhiteList.DONT_ALLOW_NULL_OR_EMPTY_INPUT);
+            SecurityWhiteList.onlyAsciiCharacters("abcABCa7bc");
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -93,11 +93,11 @@ public class WhitelistTest {
         
         try {
         
-            SecurityWhiteList.onlyAsciiCharacters("abcABCabÅc", SecurityWhiteList.DONT_ALLOW_NULL_OR_EMPTY_INPUT);
+            SecurityWhiteList.onlyAsciiCharacters("abcABCabÅc");
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -110,11 +110,11 @@ public class WhitelistTest {
         
         try {
         
-            SecurityWhiteList.onlyAsciiCharacters("<script>", SecurityWhiteList.DONT_ALLOW_NULL_OR_EMPTY_INPUT);
+            SecurityWhiteList.onlyAsciiCharacters("<script>");
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -127,11 +127,11 @@ public class WhitelistTest {
         
         try {
         
-            SecurityWhiteList.onlyAsciiCharacters("select * from users", SecurityWhiteList.DONT_ALLOW_NULL_OR_EMPTY_INPUT);
+            SecurityWhiteList.onlyAsciiCharacters("select * from users");
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -148,7 +148,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -163,7 +163,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.onlyAsciiCharacters("abcABCabc", 9);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -186,7 +186,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -203,7 +203,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -218,7 +218,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.onlyAsciiCharactersAndDigits("abcAB8Cab2c");
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -237,7 +237,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -254,7 +254,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -271,7 +271,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -288,7 +288,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -305,7 +305,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -320,7 +320,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.onlyAsciiCharactersAndDigits("abcA7BCab6c", 11);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -343,7 +343,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -360,7 +360,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -375,7 +375,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.onlyDigits("1234567890");
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -394,7 +394,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -411,7 +411,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -428,7 +428,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -445,7 +445,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -462,7 +462,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -477,7 +477,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.onlyDigits("1234567890", 10);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -500,7 +500,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -517,7 +517,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -534,7 +534,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyUnicodeCharacters(input);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -553,7 +553,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -570,7 +570,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -587,7 +587,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -604,7 +604,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -619,7 +619,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyUnicodeCharacters("abcABCabcÅÄÖ", 12);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -642,7 +642,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -659,7 +659,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -676,7 +676,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyUnicodeCharactersAndDigits(input);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -695,7 +695,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -712,7 +712,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -729,7 +729,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -744,7 +744,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyUnicodeCharacterAndDigits("abcABCabcåäöÅÄÖüÜ1234567890", 27);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -767,7 +767,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -784,7 +784,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -799,7 +799,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyLatinCharactersAndWhitespaces("abcABCabcåäöÅÄÖüÜ \t\n\r");
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -818,7 +818,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -835,7 +835,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -852,7 +852,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -869,7 +869,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -886,7 +886,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -901,7 +901,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyLatinCharactersAndWhitespaces("abcABCabcåäöÅÄÖüÜ \t\n\r", 21);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -923,7 +923,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -940,7 +940,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -955,7 +955,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyLatinCharactersWhitespaceOrDigit("abcABCabcåäöÅÄÖüÜ \t\n\r1234567890");
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
@@ -974,7 +974,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -991,7 +991,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -1008,7 +1008,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -1025,7 +1025,7 @@ public class WhitelistTest {
         
             fail();
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         }
@@ -1040,7 +1040,7 @@ public class WhitelistTest {
         
             SecurityWhiteList.anyLatinCharactersWhitespaceOrDigit("abcABCabcåäöÅÄÖüÜ \t\n\r1234567890", 31);
         }
-        catch(SecurityException se) {
+        catch(IllegalArgumentException se) {
             
             System.out.println(se.getMessage());
         
