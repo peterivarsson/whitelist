@@ -6,6 +6,7 @@
 package se.peter.ivarsson.security;
 
 import java.util.regex.Pattern;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -22,7 +23,7 @@ public class SecurityWhiteList {
     private static final Pattern ONLY_LATIN_CHARACTERS_AND_WHITESPACE = Pattern.compile("[\\p{IsLatin}\\s]*");  // Allow Latin characters and whitespace
     private static final Pattern ONLY_LATIN_CHARACTERS_AND_WHITESPACE_AND_DIGITS = Pattern.compile("[\\p{IsLatin}\\s0-9]*");  // Allow Latin characters, whitespace and digits
 
-    public static void onlyAsciiCharacters(@NotNull String input) throws IllegalArgumentException {
+    public static void onlyAsciiCharacters(@Valid @NotNull String input) throws IllegalArgumentException {
 
         checkIfEmpty(input);
 
